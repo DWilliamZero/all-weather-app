@@ -1,13 +1,13 @@
 # all-weather-app
 A responsive web app that provides 5-day weather forecasts by zip-code, using the OpenWeather API.
 
-## 1. **Title:** The All Weather App!
+## 1. **Title - The All Weather App!:** 
 
-## 2. **Description:**:
+## 2. **Description:**
 The All Weather App is a responsive web app that provides a 5-day weather forecast by zip-code.  The responsiveness will be optimized for desktop, tablet, and mobile.
 User can enter a zip-code for the area of interest, and they will recieve a neatly styled weather forecast providing: Date, Temprature, sky-cover, wind speed and direction, for the current day, and the following 4-days.
 
-## 3. **Wireframes:**:
+## 3. **Wireframes:**
 TBD
 
 ## 4. **API:** 
