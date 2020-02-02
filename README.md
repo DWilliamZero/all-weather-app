@@ -1,4 +1,4 @@
-# The All Weather App!
+# The All Weather App
 A responsive web app that provides 5-day weather forecasts by zip-code, using the OpenWeather API.
 
 ## **Description:**
@@ -16,7 +16,7 @@ The app will be using the [OpenWeather API](https://openweathermap.org/api)
 2. To create a clean, and simple UI
 3. To provide: Date, Temp, Sky Cover, Wind Speed & Direction, for the current day, and the following 4-days, and the location of the user's choice.
 4. To incorporate dynamic background images that change with forecast.
-5. To provide responsiveness for web, tablet, and mobile devices.
+5. To provide responsiveness for web, tablet, and mobile devices. (Widths above 800px, between 500px & 800px, and below 500px respectively)
 
 ## **Post-MVP:**
 1. Auto-populate user's current location
