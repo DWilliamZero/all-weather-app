@@ -6,7 +6,23 @@ The All Weather App is a responsive web app that provides a 5-day weather foreca
 User can enter a zip-code for the area of interest, and they will recieve a neatly styled weather forecast providing: Date, Temprature, sky-cover, wind speed and direction, for the current day, and the following 4-days.
 
 ## **Wireframes:**
-TBD
+### **Home View - Desktop**
+![](https://www.dwilliamzero.com/zero-cloud/all-weather-app-wireframe_000.jpg)
+
+### **Results View - Desktop**
+![](https://www.dwilliamzero.com/zero-cloud/all-weather-app-wireframe_001.jpg)
+
+### **Home View - Tablet**
+![](https://www.dwilliamzero.com/zero-cloud/all-weather-app-wireframe_002.jpg)
+
+### **Results View - Tablet**
+![](https://www.dwilliamzero.com/zero-cloud/all-weather-app-wireframe_003.jpg)
+
+### **Home View - Mobile**
+![](https://www.dwilliamzero.com/zero-cloud/all-weather-app-wireframe_004.jpg)
+
+### **Results View - Mobile**
+![](https://www.dwilliamzero.com/zero-cloud/all-weather-app-wireframe_005.jpg)
 
 ## **API:** 
 The app will be using the [OpenWeather API](https://openweathermap.org/api)
