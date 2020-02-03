@@ -1,0 +1,60 @@
+body {
+  
+}
+
+header {
+display: flex;
+border: 2px solid black;
+justify-content: flex-start;
+flex-direction: column;
+height: 300px;
+}
+
+nav {
+
+}
+
+nav a {
+text-decoration: none;
+color: black;
+}
+
+.search {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+#zip {
+  margin: 220px 0 10px 0;
+}
+
+input {
+  
+}
+
+button {
+
+}
+
+main {
+
+}
+
+.today {
+
+}
+
+.next-4 {
+
+}
+
+footer {
+color: black;
+}
+
+footer a {
+  text-decoration: none;
+  color: black;
+
+}
