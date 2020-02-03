@@ -3,8 +3,7 @@ A responsive web app that provides 5-day weather forecasts by zip-code, using th
 
 ## **Description:**
 The All Weather App is a responsive web app that provides a 5-day weather forecast by zip-code.  The responsiveness will be optimized for desktop, tablet, and mobile.
-User can enter a zip-code for the area of interest, and they will recieve a neatly styled weather forecast providing: Date, Temprature, sky-cover, wind speed and direction, for the current day, and the following 4-days.  Users can also share selected weather with friends by email. All emails are added to a mailing list.
-
+User can enter a zip-code for the area of interest, and they will recieve a neatly styled weather forecast providing: Date, Temprature, sky-cover, wind speed and direction, for the current day, and the following 4-days.
 ## **Wireframes:**
 ### **Home View - Desktop**
 ![](https://www.dwilliamzero.com/zero-cloud/all-weather-app-wireframe_000.jpg)
