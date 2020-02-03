@@ -1,5 +1,8 @@
 body {
-  background-image: linear-gradient(to right, white, yellow);
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(to right, white, lightblue);
+
 }
 
 header {
@@ -8,17 +11,24 @@ border: 2px solid black;
 justify-content: flex-start;
 flex-direction: column;
 height: 300px;
-
+background-image: url("../img/sunny3.jpg");
+background-size: cover;
+background-position: center top;
 }
 
 nav {
 
 }
 
+h1 {
+  font-size: 40px;
+}
+
 nav a {
 text-decoration: none;
 color: black;
-font-size: 25px;
+font-size: 40px;
+text-shadow: 1px 1px 2px white;
 }
 
 .search {
@@ -28,7 +38,7 @@ font-size: 25px;
 }
 
 #zip {
-  margin: 220px 0 10px 0;
+  margin: 190px 0 10px 0;
 }
 
 input {
@@ -43,16 +53,88 @@ main {
 
 }
 
+.city {
+  text-align: center;
+}
+
+.city h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 100px;
+}
+
+.city h2 {
+  padding: 0;
+  margin: 0;
+}
+
 .today {
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.nextFour {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 
 }
 
-.next-4 {
+.day-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+  width: 700px;
+  height: 300px;
+}
 
+.day-1 h1 {
+  font-size: 150px
+}
+
+.day-1 h3 {
+font-size: 30px;
+}
+
+.day-2 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 50px 10px;
+  width: 300px;
+}
+
+.day-3 {
+  border: 2px solid black;
+  text-align: center;
+  padding: 50px 10px;
+  width: 300px;
+}
+
+.day-4 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 50px 10px;
+  width: 300px;
+}
+
+.day-5 {
+  border: 2px solid black;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 50px 10px;
+  width: 300px;
 }
 
 footer {
-color: black;
+
 }
 
 footer a {
