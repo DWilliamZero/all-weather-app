@@ -10,6 +10,13 @@
   <title>The All-Weather App | Weather At Your Finger Tips!</title>
   <link rel='stylesheet' type='text/css' href='css/style.css'>
   <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+  <!--mailJs scripts-->
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("user_0lR4dhN2qLBPPAOipWgAl");
+    })();
+  </script>
 </head>
 
 <body>
@@ -27,6 +34,7 @@
     <section class='city'></section>
     <section class='today'></section>
     <section class='nextFour'></section>
+    <section id='mapholder'></section>
   </main>
 
 
@@ -43,7 +51,6 @@
       <input id='email' value="" placeholder="Enter Email" type="email">
       <button class='email'>Send</button>
     </div>
-
   </div>
 
 
