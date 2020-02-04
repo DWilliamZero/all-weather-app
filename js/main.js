@@ -142,7 +142,6 @@ const modalFunc = function () {
   }
 }
 
-
 ///////////////////////////////////////
 /////////                  ///////////
 ////////   Welcome To     ///////////
@@ -163,7 +162,7 @@ const emailFunc = function () {
   var template_id = "template_hEYhSXl3";
   emailjs.send(service_id, template_id, template_params);
 }
-//emailFunc();
+emailFunc();
 
 
 
