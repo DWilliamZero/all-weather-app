@@ -10,8 +10,8 @@
   <title>The All-Weather App | Weather At Your Finger Tips!</title>
   <link rel='stylesheet' type='text/css' href='css/style.css'>
   <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
   <!--mailJs scripts-->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
   <script type="text/javascript">
     (function () {
       emailjs.init("user_0lR4dhN2qLBPPAOipWgAl");
@@ -47,9 +47,11 @@
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close">&times;</span>
-      <p>Use this from to email the weather to a freind!</p>
-      <input id='email' value="" placeholder="Enter Email" type="email">
-      <button class='email'>Send</button>
+      <p>Share The Weather With A Freind!</p>
+      <input id='sender' value='' placeholder="Your Name" type='text'>
+      <input id='email' value='' placeholder="Freind's Email" type="email">
+      <input id='sender-message' value='' placeholder='Add a Message Here' type='text'>
+      <button class='email' id='email-btn'>Send</button>
     </div>
   </div>
 

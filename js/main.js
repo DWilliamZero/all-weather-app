@@ -3,10 +3,12 @@ const API_KEY = 'e0abcd1b2b4a5053e916c3789faba5f3'; //api key
 const SENDER_EMAIL = 'the.all.weather.app@gmail.com';
 const EMAIL_PASS = 'Qwerty123!@#';
 const reCaptcha = '6Lc91dUUAAAAAAR3V2a4pGqICKH7jy1bTDNglba9'  //public key
+let emailSent = false;
+let city = '';
 
 //let nodemailer = require('nodemailer');   //require nodemailer for sending "share weather" emails
 
-const weekDay = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const weekDay = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed'];
 let date = new Date();   //grab local date
 let today = date.getDay();  //calculate day of the week as integer
 let card = '';
@@ -36,7 +38,7 @@ const degsToCard = function (degs) {                                  //converts
 
 const renderWeather = function (weather) {
 
-  let city = weather.data.city.name;            //identify city and post it
+  city = weather.data.city.name;            //identify city and post it
   let cityDiv = document.createElement('div');
   cityDiv.className = `city-name`;
   cityDiv.innerHTML = `<h2>Today's Weather:</h2><br><h1>${city}</h1>`;
@@ -60,14 +62,16 @@ const renderWeather = function (weather) {
     newDiv.className = `day-${norm}`;  // give each div a unique class name (for styling later)
 
     if (i === 0) {
-      newDiv.innerHTML = `<h3 class='today-cloud'>${cloud}</h3><h1 class='today-temp'>${Math.floor(temp)}&#8457;</h1><h3 class='today-wind'>Wind: ${cardinal} @ ${Math.floor(speed)}-KTS</h3><div><button id="myBtn-today">Share</button></div>`
+      newDiv.innerHTML = `<h3 class='today-cloud'>${cloud}</h3><h1 class='today-temp'>${Math.floor(temp)}&#8457;</h1><h3 class='today-wind'>Wind: ${cardinal} @ ${Math.floor(speed)}-KTS</h3><div><button id="myBtn-${norm}">Share</button></div>`
       document.querySelector(".today").append(newDiv)
     } else {
       newDiv.innerHTML = `<h1 class='h1-day-${norm}'>${day}</h1><h3 class='h3-cloud-${norm}'>${cloud}</h3><h1 class='h1-temp-${norm}'>${Math.floor(temp)}&#8457;</h1><h3 class='h3-wind-${norm}'>Wind: ${cardinal} @ ${Math.floor(speed)}-KTS</h3><button id="myBtn-${norm}">Share</button>`
       document.querySelector(".nextFour").append(newDiv);
     }
+
   }
   modalFunc();
+  return city;
 }
 
 let fiveDay = async function () {
@@ -102,7 +106,7 @@ const modalFunc = function () {
   let modal = document.getElementById("myModal");
 
   // Get the button that opens the modal
-  let btnToday = document.getElementById(`myBtn-today`);
+  let btnToday = document.getElementById(`myBtn-1`);
   let btn2 = document.getElementById(`myBtn-2`);
   let btn3 = document.getElementById(`myBtn-3`);
   let btn4 = document.getElementById(`myBtn-4`);
@@ -111,6 +115,7 @@ const modalFunc = function () {
 
   // Get the <span> element that closes the modal
   let span = document.getElementsByClassName("close")[0];
+  let span2 = document.getElementsByClassName("close2")[0];
 
   // When the user clicks on the button, open the modal
   btnToday.onclick = function () {
@@ -131,14 +136,18 @@ const modalFunc = function () {
 
   // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
-    modal.style.display = "none";
+    if (emailSent === true) {
+      modal.style.display = "none";
+      location.reload();
+    } else { modal.style.display = "none"; }
   }
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
-    if (event.target == modal) {
+    if (event.target == modal && emailSent === true) {
       modal.style.display = "none";
-    }
+      location.reload();
+    } else if (event.target == modal) { modal.style.display = "none"; }
   }
 }
 
@@ -149,22 +158,31 @@ const modalFunc = function () {
 //////                  ///////////
 //////////////////////////////////
 
+const emailBtn = document.querySelector('#email-btn');
+
 const emailFunc = function () {
-  var template_params = {
-    "email": "william.zero@gigkloud.com",
-    "reply_to": "the.all.weather.app@gmail.com",
-    "senders_name": "Joe Mama",
-    "cityname": "China Town",
-    "message_html": "message message message message"
-  }
+  emailBtn.addEventListener('click', async () => {
+    const sender = document.querySelector('#sender').value;
+    const email = document.querySelector('#email').value;
+    const senderMessage = document.querySelector('#sender-message').value;
 
-  var service_id = "default_service";
-  var template_id = "template_hEYhSXl3";
-  emailjs.send(service_id, template_id, template_params);
+    let template_params = {
+      "email": `${email}`,
+      "reply_to": "the.all.weather.app@gmail.com",
+      "senders_name": `${sender}`,
+      "cityname": `${city}`,
+      "message_html": `<p>${senderMessage}:</p><p>The Weather in ${city} is:</p>WEATEHR DATA GOES HERE`
+    }
+
+    let service_id = "default_service";
+    let template_id = "template_hEYhSXl3";
+    emailjs.send(service_id, template_id, template_params);
+    document.querySelector('.modal-content').innerHTML = `<h2>Your Email Has Been Sent! Thanks!</h2>`;
+    emailSent = true;
+    return emailSent;
+  })
 }
-//emailFunc();
-
-
+emailFunc();
 
 ///////////////////////////////////////
 /////////                  ///////////
