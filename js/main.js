@@ -162,7 +162,7 @@ const emailFunc = function () {
   var template_id = "template_hEYhSXl3";
   emailjs.send(service_id, template_id, template_params);
 }
-emailFunc();
+//emailFunc();
 
 
 
@@ -193,7 +193,7 @@ emailFunc();
 
 //   let latlon = position.coords.latitude + "," + position.coords.longitude;
 //   console.log(latlon);
-//   let img_url = "https://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=400x300&sensor=false&key=AIzaSyAr1QLoZpoH5aO4ev4TldTm1yvljhs-bdY";
+//   let img_url = "https://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=400x300&sensor=false&key=API KEY GOES HERE";
 
 //   document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "'>";
 //}
