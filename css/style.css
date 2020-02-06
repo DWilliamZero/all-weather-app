@@ -291,7 +291,7 @@ footer a {
   }
 
   .modal-content button {
-    margin: 40px 0 0 80%;
+    margin: 20px 0 0 80%;
   }
 
   .modal-content h2 {
@@ -321,7 +321,7 @@ nav a {
 }
 
 #zip {
-  margin: 30px 0 10px 0;
+  margin: 25px 0 10px 0;
   font-size: 25px;
 }
 
@@ -332,11 +332,16 @@ nav a {
 }
 
 .city h1 {
-  font-size: 70px;
+  font-size: 60px;
+}
+
+.day-1 h3 {
+  font-size: 20px;
+  padding-left: 25%;
 }
 
 .day-1 h1 {
-  font-size: 100px;
+  font-size: 60px;
 }
 
 h1 {
@@ -344,12 +349,15 @@ h1 {
 }
 
 .modal-content {
-  height: 50%;
-  width: 80%;
+  height: auto;
+  width: auto;
 }
 
 .modal-content button {
   margin: 30px 0 0 70%;
 }
 
+.modal-content #sender-message {
+  height: 100px;
+}
 }
