@@ -62,13 +62,12 @@ const renderWeather = function (weather) {
     newDiv.className = `day-${norm}`;  // give each div a unique class name (for styling later)
 
     if (i === 0) {
-      newDiv.innerHTML = `<h3 class='today-cloud'>${cloud}</h3><h1 class='today-temp'>${Math.floor(temp)}&#8457;</h1><h3 class='today-wind'>Wind: ${cardinal} @ ${Math.floor(speed)}-KTS</h3><div><button id="myBtn-${norm}">Share</button></div>`
+      newDiv.innerHTML = `<h3 class='today-cloud'>${cloud}</h3><h1 class='today-temp'>${Math.floor(temp)}&#8457;</h1><h3 class='today-wind'>Wind: ${cardinal} @ ${Math.floor(speed)}-KTS</h3><button class='btn-forecast' id="myBtn-${norm}">Share</button>`
       document.querySelector(".today").append(newDiv)
     } else {
-      newDiv.innerHTML = `<h1 class='h1-day-${norm}'>${day}</h1><h3 class='h3-cloud-${norm}'>${cloud}</h3><h1 class='h1-temp-${norm}'>${Math.floor(temp)}&#8457;</h1><h3 class='h3-wind-${norm}'>Wind: ${cardinal} @ ${Math.floor(speed)}-KTS</h3><button id="myBtn-${norm}">Share</button>`
+      newDiv.innerHTML = `<h1 class='h1-day-${norm}'>${day}</h1><h3 class='h3-cloud-${norm}'>${cloud}</h3><h1 class='h1-temp-${norm}'>${Math.floor(temp)}&#8457;</h1><h3 class='h3-wind-${norm}'>Wind: ${cardinal} @ ${Math.floor(speed)}-KTS</h3><button class='btn-forecast' id="myBtn-${norm}">Share</button>`
       document.querySelector(".nextFour").append(newDiv);
     }
-
   }
   modalFunc();
   return city;
@@ -93,13 +92,14 @@ let fiveDay = async function () {
 fiveDay();
 
 
-
 ///////////////////////////////////////
 /////////                  ///////////
 ////////   Welcome To     ///////////
 ///////    Modal Town    ///////////
 //////                  ///////////
 //////////////////////////////////
+
+let emailWeather = '';
 
 const modalFunc = function () {
 
@@ -115,23 +115,27 @@ const modalFunc = function () {
 
   // Get the <span> element that closes the modal
   let span = document.getElementsByClassName("close")[0];
-  let span2 = document.getElementsByClassName("close2")[0];
 
   // When the user clicks on the button, open the modal
   btnToday.onclick = function () {
     modal.style.display = "block";
+    emailWeather = document.querySelector('.day-1').innerHTML;
   }
   btn2.onclick = function () {
     modal.style.display = "block";
+    emailWeather = document.querySelector('.day-2').innerHTML;
   }
   btn3.onclick = function () {
     modal.style.display = "block";
+    emailWeather = document.querySelector('.day-3').innerHTML;
   }
   btn4.onclick = function () {
     modal.style.display = "block";
+    emailWeather = document.querySelector('.day-4').innerHTML;
   }
   btn5.onclick = function () {
     modal.style.display = "block";
+    emailWeather = document.querySelector('.day-5').innerHTML;
   }
 
   // When the user clicks on <span> (x), close the modal
@@ -171,7 +175,7 @@ const emailFunc = function () {
       "reply_to": "the.all.weather.app@gmail.com",
       "senders_name": `${sender}`,
       "cityname": `${city}`,
-      "message_html": `<p>${senderMessage}:</p><p>The Weather in ${city} is:</p>WEATEHR DATA GOES HERE`
+      "message_html": `<p>${senderMessage}:</p><h1>The Weather in ${city} is:</h1>${emailWeather}`
     }
 
     let service_id = "default_service";
