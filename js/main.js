@@ -1,12 +1,8 @@
 const BASE_URL = "http://api.openweathermap.org/data/2.5/forecast?zip=";
 const API_KEY = 'e0abcd1b2b4a5053e916c3789faba5f3'; //api key
-const SENDER_EMAIL = 'the.all.weather.app@gmail.com';
-const EMAIL_PASS = 'Qwerty123!@#';
-const reCaptcha = '6Lc91dUUAAAAAAR3V2a4pGqICKH7jy1bTDNglba9'  //public key
+
 let emailSent = false;
 let city = '';
-
-//let nodemailer = require('nodemailer');   //require nodemailer for sending "share weather" emails
 
 const weekDay = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed'];
 let date = new Date();   //grab local date
@@ -44,14 +40,13 @@ const renderWeather = function (weather) {
   cityDiv.innerHTML = `<h2>Today's Weather:</h2><br><h1>${city}</h1>`;
   document.querySelector('.city').append(cityDiv)
 
-  for (let i = 0; i < 40; i += 8) {     //weather data is in 3-hour blocks, adding 8 jumos 24-hrs ahead
-    //newDivToday = newDivToday.createElement('div');
+  for (let i = 0; i < 40; i += 8) {                          //weather data is in 3-hour blocks, adding 8 jumos 24-hrs ahead
 
-    let temp = weather.data.list[i].main.temp;          //gather all variables
+    let temp = weather.data.list[i].main.temp;               //gather all variables
     let cloud = weather.data.list[i].weather[0].description;
     let speed = weather.data.list[i].wind.speed;
     let direction = weather.data.list[i].wind.deg;
-    let norm = i / 8 + 1;     //normalizes the values of day from 1 to 5
+    let norm = i / 8 + 1;                                    //normalizes the values of day from 1 to 5
 
     let cardinal = degsToCard(direction);  //returns cardinal heading conversion
 
@@ -73,7 +68,7 @@ const renderWeather = function (weather) {
   return city;
 }
 
-let fiveDay = async function () {
+const fiveDay = async function () {
   button.addEventListener('click', async () => {
     const zipCode = document.querySelector('#zip').value;
     const weather = await axios.get(`${BASE_URL}${zipCode},us&units=imperial&APPID=${API_KEY}`)
@@ -82,7 +77,6 @@ let fiveDay = async function () {
         document.querySelector('.today').innerHTML = '';     //ensure .today is clear
         document.querySelector('.nextFour').innerHTML = '';  //ensure .nextFour is clear
         renderWeather(weather);
-        //console.log(weather);
       })
       .catch(error => {
         console.log(error);
@@ -103,21 +97,20 @@ let emailWeather = '';
 
 const modalFunc = function () {
 
-  let modal = document.getElementById("myModal");
+  let modal = document.getElementById("myModal");               //target modal
 
-  // Get the button that opens the modal
-  let btnToday = document.getElementById(`myBtn-1`);
+  let btnToday = document.getElementById(`myBtn-1`);            // Get the buttons that open the modal
   let btn2 = document.getElementById(`myBtn-2`);
   let btn3 = document.getElementById(`myBtn-3`);
   let btn4 = document.getElementById(`myBtn-4`);
   let btn5 = document.getElementById(`myBtn-5`);
 
 
-  // Get the <span> element that closes the modal
-  let span = document.getElementsByClassName("close")[0];
 
-  // When the user clicks on the button, open the modal
-  btnToday.onclick = function () {
+  let span = document.getElementsByClassName("close")[0];       // Get the <span> element that closes the modal
+
+
+  btnToday.onclick = function () {                              // When the user clicks on the button, open the modal
     modal.style.display = "block";
     emailWeather = document.querySelector('.day-1').innerHTML;
   }
@@ -138,16 +131,14 @@ const modalFunc = function () {
     emailWeather = document.querySelector('.day-5').innerHTML;
   }
 
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function () {
+  span.onclick = function () {                                    // When the user clicks on <span> (x), close the modal
     if (emailSent === true) {
       modal.style.display = "none";
       location.reload();
     } else { modal.style.display = "none"; }
   }
 
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function (event) {
+  window.onclick = function (event) {                            // When the user clicks anywhere outside of the modal, close it
     if (event.target == modal && emailSent === true) {
       modal.style.display = "none";
       location.reload();
@@ -187,35 +178,3 @@ const emailFunc = function () {
   })
 }
 emailFunc();
-
-///////////////////////////////////////
-/////////                  ///////////
-////////   Welcome To     ///////////
-///////   Google Maps    ///////////
-//////                  ///////////
-//////////////////////////////////
-
-//console.log(getCurrentPosition());
-// var x = document.getElementById("demo");
-// function getLocation() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(showPosition);
-//   } else {
-//     x.innerHTML = "Geolocation is not supported by this browser.";
-//   }
-// }
-
-// function showPosition(position) {
-//   x.innerHTML = "Latitude: " + position.coords.latitude +
-//   "<br>Longitude: " + position.coords.longitude;
-// }
-
-
-// function showPosition(position) {
-
-//   let latlon = position.coords.latitude + "," + position.coords.longitude;
-//   console.log(latlon);
-//   let img_url = "https://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=400x300&sensor=false&key=API KEY GOES HERE";
-
-//   document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "'>";
-//}

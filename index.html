@@ -26,7 +26,7 @@
     </nav>
     <section class='search'>
       <form>
-        <input id='zip' value='' placeholder="Enter Zip Code">
+        <input id='zip' value='' placeholder="Enter Zip Code" type='text' maxlength='5'>
         <button class='search'>Search</button></form>
     </section>
   </header>
@@ -35,7 +35,6 @@
     <section class='city'></section>
     <section class='today'></section>
     <section class='nextFour'></section>
-    <section id='mapholder'></section>
   </main>
 
 
@@ -51,7 +50,7 @@
       <p>Share The Weather With A Friend!</p>
       <input id='sender' value='' placeholder="Your Name" type='text'>
       <input id='email' value='' placeholder="Friend's Email" type="email">
-      <input id='sender-message' value='' placeholder='Add a Message Here' type='text'>
+      <input id='sender-message' value='' placeholder='Add a Message Here' type='text' maxlength='112'>
       <button class='email' id='email-btn'>Send</button>
     </div>
   </div>
