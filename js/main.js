@@ -1,8 +1,5 @@
 const BASE_URL = "http://api.openweathermap.org/data/2.5/forecast?zip=";
 const API_KEY = 'e0abcd1b2b4a5053e916c3789faba5f3'; //api key
-const SENDER_EMAIL = 'the.all.weather.app@gmail.com';
-const EMAIL_PASS = 'Qwerty123!@#';
-const reCaptcha = '6Lc91dUUAAAAAAR3V2a4pGqICKH7jy1bTDNglba9'  //public key
 let emailSent = false;
 let city = '';
 
@@ -76,7 +73,7 @@ const renderWeather = function (weather) {
 let fiveDay = async function () {
 
   button.addEventListener('click', async (event) => {
-    event.preventDefault();
+    event.preventDefault();                                           //form keeps breaking, so this fixed it. why? how? who knows..
     const zipCode = document.querySelector('#zip').value;
     const weather = await axios.get(`${BASE_URL}${zipCode},us&units=imperial&APPID=${API_KEY}`)
       .then(weather => {
