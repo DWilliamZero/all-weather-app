@@ -12,7 +12,7 @@ let card = '';
 
 const button = document.querySelector('button');
 
-const degsToCard = function (degs) {                                  //converts compass degress to cardinal headings
+const degsToCard = function (degs) {               //converts compass degress to cardinal headings
   if ((degs >= 0 && degs <= 22) || (degs >= 338 && degs <= 360)) {
     card = 'N';
   } else if (degs >= 23 && degs <= 67) {
@@ -81,7 +81,7 @@ let fiveDay = async function () {
         document.querySelector('.today').innerHTML = '';     //ensure .today is clear
         document.querySelector('.nextFour').innerHTML = '';  //ensure .nextFour is clear
         renderWeather(weather);
-        //console.log(weather);
+        console.log(weather);
       })
       .catch(error => {
         console.log(error);
