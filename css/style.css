@@ -127,7 +127,8 @@ button:hover {
 }
 
 .day-1 h1 {
-  font-size: 150px
+  font-size: 150px;
+  text-align: center;
 }
 
 .day-1 h3 {
